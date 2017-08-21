@@ -31,8 +31,8 @@ class PortfoliosController < ApplicationController
   def update
     @portfolio_item = Portfolio.find(params[:id])
     respond_to do |format|
-      if @portfolio_item.update(blog_params)
-        format.html { redirect_to @blog, notice: 'The record was successfully updated.' }
+      if @portfolio_item.update(portfolio_params)
+        format.html { redirect_to @portfolio, notice: 'The record was successfully updated.' }
       else
         format.html { render :edit }
       end
@@ -54,7 +54,7 @@ class PortfoliosController < ApplicationController
   private
 
   def portfolio_params
-    params.require(:blog).permit(:title, :subtitle, :body)
+    params.require(:portfolio).permit(:title, :subtitle, :body)
   end
 
 end
